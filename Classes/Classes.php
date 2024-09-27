@@ -35,7 +35,20 @@ class Classmanager {
             return $URL;
         }
     } 
-
+     public function addurl($url) {
+            
+            $con = DBConnect::getConnection();
+            $date = date("Y-m-d");
+            $newurl = mysql_real_escape_string($url);
+            $sql = "INSERT INTO urls (url, added_date) VALUES ('$newurl', '$date')";
+            $results = mysql_query($sql, $con) or die("couldn't execute the sql");
+    
+            if ($results) {
+                return 'added';
+            } else {
+                return 'failed';
+            }
+        }  
    
 }
 

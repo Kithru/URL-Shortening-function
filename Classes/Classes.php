@@ -48,6 +48,7 @@ class Classmanager {
             return 'added';
         } else {
             return 'failed';
+            //test
         }
     }  
 
